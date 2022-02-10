@@ -8,10 +8,13 @@ Fonctionnalités présentes :
 - Navigation pour avoir plus d'informations sur les cryptos présentes dans la base de donnée (pas pour celles de la liste 2)
 
 
+
 Compte pour se connecter :
 
 mail : etienne@vautherin.com
+
 mdp : lpdw22
+
 
 
 Avis :
