@@ -16,7 +16,7 @@ import FirebaseFirestoreSwift
 class ViewModel: ObservableObject {
     @Published var user: User?
     @Published var errorMessage: String?
-    @Published var items = [Item]()
+    @Published var items = [CryptoItem]()
     
     var listener: ListenerRegistration?
     var subscription: AnyCancellable?
@@ -60,7 +60,7 @@ extension ViewModel {
             print("Documents : \(documents)")
             do {
                 items = try documents.compactMap( {document in
-                    let items = try document.data(as: Item.self)
+                    let items = try document.data(as: CryptoItem.self)
                     return items
                 })
             } catch {
@@ -78,7 +78,7 @@ extension ViewModel {
         }
         
         if let user = user {
-            let collection = Firestore.firestore().collection("Crypto")
+            let collection = Firestore.firestore().collection("cryptoList")
             listener = collection.addSnapshotListener { [weak self] (querySnapshot, error) in
                 self?.snapshotListener(querySnapchot: querySnapshot, error: error)
             }

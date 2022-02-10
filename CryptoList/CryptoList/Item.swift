@@ -8,8 +8,11 @@
 import Foundation
 import FirebaseFirestoreSwift
 
-class Item: Identifiable, Codable {
+class CryptoItem: Identifiable, Codable {
     @DocumentID var id: String?
     var name: String?
     var abreviation: String?
+    var price: Int?
+    var marketcap: Int?
+    var rank: Int?
 }

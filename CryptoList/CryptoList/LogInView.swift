@@ -34,6 +34,7 @@ struct LogInView: View {
             .background(Color.blue)
             .cornerRadius(15)
         }
+        .navigationBarTitle("")
         .padding()
     }
 }

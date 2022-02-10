@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E30B19227B54B0200DC68C5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E30B19127B54B0200DC68C5 /* XCTest.framework */; };
+		6E4F59DF27B456FE00DB5536 /* AddCryptoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4F59DE27B456FE00DB5536 /* AddCryptoItem.swift */; };
+		6E4F59E127B4576D00DB5536 /* Expenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4F59E027B4576D00DB5536 /* Expenses.swift */; };
 		6E775F5A27B3C98E00494B37 /* CryptoListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E775F5927B3C98E00494B37 /* CryptoListApp.swift */; };
 		6E775F5C27B3C98E00494B37 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E775F5B27B3C98E00494B37 /* ContentView.swift */; };
 		6E775F5E27B3C98E00494B37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E775F5D27B3C98E00494B37 /* Assets.xcassets */; };
@@ -29,6 +32,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6E30B19127B54B0200DC68C5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		6E4F59DE27B456FE00DB5536 /* AddCryptoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCryptoItem.swift; sourceTree = "<group>"; };
+		6E4F59E027B4576D00DB5536 /* Expenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expenses.swift; sourceTree = "<group>"; };
 		6E775F5627B3C98E00494B37 /* CryptoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E775F5927B3C98E00494B37 /* CryptoListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListApp.swift; sourceTree = "<group>"; };
 		6E775F5B27B3C98E00494B37 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -47,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E30B19227B54B0200DC68C5 /* XCTest.framework in Frameworks */,
 				6E775F6B27B3CB5000494B37 /* FirebaseAuth in Frameworks */,
 				6E775F7127B3CB5000494B37 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				6E775F7927B3CB5000494B37 /* FirebaseStorageCombine-Community in Frameworks */,
@@ -62,11 +69,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E30B19027B54B0200DC68C5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6E30B19127B54B0200DC68C5 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6E775F4D27B3C98E00494B37 = {
 			isa = PBXGroup;
 			children = (
 				6E775F5827B3C98E00494B37 /* CryptoList */,
 				6E775F5727B3C98E00494B37 /* Products */,
+				6E30B19027B54B0200DC68C5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +99,8 @@
 			children = (
 				6E775F5927B3C98E00494B37 /* CryptoListApp.swift */,
 				6E775F5B27B3C98E00494B37 /* ContentView.swift */,
+				6E4F59DE27B456FE00DB5536 /* AddCryptoItem.swift */,
+				6E4F59E027B4576D00DB5536 /* Expenses.swift */,
 				6E871B3127B4190E00CE6309 /* LogOutView.swift */,
 				6E871B2F27B410E600CE6309 /* HomeView.swift */,
 				6E871B2927B4064F00CE6309 /* LogInView.swift */,
@@ -188,10 +206,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E4F59E127B4576D00DB5536 /* Expenses.swift in Sources */,
 				6E871B2A27B4064F00CE6309 /* LogInView.swift in Sources */,
 				6E775F5C27B3C98E00494B37 /* ContentView.swift in Sources */,
 				6E871B2E27B40BA400CE6309 /* Item.swift in Sources */,
 				6E871B3027B410E600CE6309 /* HomeView.swift in Sources */,
+				6E4F59DF27B456FE00DB5536 /* AddCryptoItem.swift in Sources */,
 				6E871B2C27B4074000CE6309 /* ViewModel.swift in Sources */,
 				6E775F5A27B3C98E00494B37 /* CryptoListApp.swift in Sources */,
 				6E871B3227B4190E00CE6309 /* LogOutView.swift in Sources */,
@@ -337,6 +357,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-weak_framework",
+					"\"XCTest\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.coursios.CryptoList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
