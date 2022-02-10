@@ -10,38 +10,59 @@ import XCTest
 
 struct HomeView: View {
     @EnvironmentObject var model: ViewModel
-    @StateObject var expenses = Expenses()
+    
+    @State var cryptos: [String] = [
+        "Solana", "Polygon", "Chiliz", "Swissborg"
+    ]
     
     var body: some View {
         NavigationView {
-            VStack {
-                if let user = model.user {
-                    VStack {
-                        Text("Hello, \(user.uid)")
-                        List(model.items) { cryptoItem in
-                            NavigationLink(destination: DetailView(cryptoItem: cryptoItem)) {
-                                let name = cryptoItem.name ?? "No name"
-                                Text("\(name)")
-                            }
-                        }
+            if let user = model.user {
+                Text("Top crypto Today")
+                List(model.items) { cryptoItem in
+                    NavigationLink(destination: DetailView(cryptoItem: cryptoItem)) {
+                        let name = cryptoItem.name ?? "No name"
+                        Text("\(name)")
                     }
-                } else {
-                    LogInView()
                 }
-                
-                if let errorMessage = model.errorMessage {
-                    Text(errorMessage)
-                        .padding()
-                        .foregroundColor(.red)
+                List {
+                    Section (header: Text("Moove, Add & Delete crypto")) {
+                        ForEach(cryptos, id: \.self) {
+                            crypto in
+                            Text(crypto.capitalized)
+                        }
+                        .onDelete(perform: delete)
+                        .onMove(perform: { indices, newOffset in
+                            cryptos.move(fromOffsets: indices, toOffset: newOffset)
+                        })
+                    }
                 }
+                .navigationBarItems(leading: EditButton(), trailing: addButton)
+            } else {
+                LogInView()
             }
-            .navigationBarTitle("Your crypto list")
-            .padding()
+                
+            if let errorMessage = model.errorMessage {
+                Text(errorMessage)
+                    .padding()
+                    .foregroundColor(.red)
+            }
         }
     }
     
-    func removeCrypto(at offsets: IndexSet) {
-        expenses.cryptoList.remove(atOffsets: offsets)
+    func delete(indexSet: IndexSet) {
+        cryptos.remove(atOffsets: indexSet)
+    }
+    
+    func add() {
+        cryptos.append("Binance Coin")
+    }
+    
+    var addButton: some View {
+        Button("Add", action: {
+            add()
+            
+        })
     }
 }
 
