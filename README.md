@@ -9,9 +9,11 @@ Fonctionnalités présentes :
 
 
 Compte pour se connecter :
+
 mail : etienne@vautherin.com
 mdp : lpdw22
 
 
 Avis :
+
 Je ne suis pas tellement satisfait du rendu niveau design et j'aurais bien voulu faire en sorte que les 2 listes n'en fasse qu'une et que l'on puisse move, delete les cryptos de la base de donnée.
