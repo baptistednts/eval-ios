@@ -19,4 +19,8 @@ mdp : lpdw22
 
 # Avis :
 
-Je ne suis pas tellement satisfait du rendu niveau design et j'aurais bien voulu faire en sorte que les 2 listes n'en fasse qu'une et que l'on puisse move, delete les cryptos de la base de donnée.
+Je ne suis pas tellement satisfait du rendu niveau design.
+
+J'aurais bien voulu faire en sorte que les 2 listes n'en fasse qu'une et que l'on puisse move, delete les cryptos de la base de donnée.
+
+Je n'ai pas réussi à intégrer les images/logo des cryptos.
