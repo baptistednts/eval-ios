@@ -70,11 +70,16 @@ struct DetailView: View {
     let cryptoItem: CryptoItem
     
     var body: some View {
-        Text(cryptoItem.name ?? "No name")
-        Text(cryptoItem.abreviation ?? "No abreviation")
-        Text("\(cryptoItem.price ?? 0)")
-        Text("\(cryptoItem.marketcap ?? 0)")
-        Text("\(cryptoItem.rank ?? 0)")
+        Text(cryptoItem.name ?? "No name").fontWeight(.bold).font(.title)
+        Divider()
+        Text("\(cryptoItem.rank ?? 0) ")
+        + Text(cryptoItem.abreviation ?? "No abreviation").font(.headline)
+        Divider()
+        Text("Price: ")
+        + Text("$\(cryptoItem.price ?? 0)").font(.headline)
+        Divider()
+        Text("MarketCap: ")
+        + Text("$\(cryptoItem.marketcap ?? 0)").font(.headline)
     }
 }
 
